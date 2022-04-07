@@ -1,14 +1,25 @@
 #include <stdio.h>
 
-/**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
-int write(int filedes, const char *buf, unsigned int nbyte); 
-int main(void)
-{
-        write(2, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", 61);
+#include <unistd.h>
 
-	return (1);
+
+
+/**
+ *
+ *  * main - printsthe pharse and that piece of art is useful
+ *
+ *   * " - Dora Korpar, 2015-10-19
+ *
+ *    * Return: 1 if the program works correcty, 0(zero) otherwise
+ *
+ *     */
+
+int main(void)
+
+{
+
+		write(2, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", 59);
+
+			return (1);
+
 }
