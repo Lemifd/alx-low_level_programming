@@ -1,42 +1,22 @@
-# 0x06. C - Even more pointers, arrays and strings
+File 0-memset.c is a function that fills memory with a constant byte.
 
-## Description
-What you should learn from this project:
+File 1-memcpy.c is a function that copies memory area.
 
-* What are pointers to pointers and how to use them
-* What are multidimensional arrays and how to use them
-* What are the most common C standard library functions to manipulate strings
+File 2-strchr.c is a function that locates a character in a string.
 
----
+File 3-strspn.c is a function that gets the length of a prefix substring.
 
-### [0. memset](./0-memset.c)
-* Write a function that fills memory with a constant byte.
+File 4-strpbrk.c is a function that searches a string for any of a set of bytes.
 
-### [1. memcpy ](./1-memcpy.c)
-* Write a function that copies memory area.
+File 5-strstr.c is a function that locates a substring.
 
-### [2. strchr](./2-strchr.c)
-* Write a function that locates a character in a string.
+File 7-print_chessboard.c is a function that prints the chessboard.
 
-### [3. strspn](./3-strspn.c)
-* Write a function that gets the length of a prefix substring.
+File 8-print_diagsums.c is a function that prints the sum of the two diagonals of a square matrix of integers.
 
-### [4. strpbrk ](./4-strpbrk.c)
-* Write a function that searches a string for any of a set of bytes.
+File 100-set_string.c is a function that sets the value of a pointer to a char.
 
-### [5. strstr](./5-strstr.c)
-* Write a function that locates a substring.
+File 101-crackme_password is a file that contains the password for the crackme2 executable.
 
-### [6. Chess is mental torture](./7-print_chessboard.c)
-* Write a function that prints the chessboard.
+File main.h is the header file with the functions prototypes.
 
-### [7. The line of life is a ragged diagonal between duty and desire](./8-print_diagsums.c)
-* Write a function that prints the sum of the two diagonals of a square matrix of integers.
-
-### [8. Double pointer, double fun](./9-set_string.c)
-* Write a function that sets the value of a pointer to a char.
-
----
-
-## Author
-* **Derrick Gee** - [kai-dg](https://github.com/kai-dg)

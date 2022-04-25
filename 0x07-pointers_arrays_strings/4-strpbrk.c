@@ -1,24 +1,19 @@
-#include <stdio.h>
-#include "holberton.h"
+#include "main.h"
 
 /**
- * _strpbrk - Entry point
- * @s: input
- * @accept: input
- * Return: Always 0 (Success)
+ * _strpbrk - finds first matching char in string
+ * @s: input string to search for matching char
+ * @accept: characters that could be matched
+ * Return: pointer to matching char
  */
+
 char *_strpbrk(char *s, char *accept)
 {
-	int i, n;
+	unsigned int i, j;
 
 	for (i = 0; s[i] != '\0'; i++)
-	{
-		for (n = 0; accept[n] != '\0'; n++)
-		{
-			if (s[i] == accept[n])
-				return (s + i);
-		}
-	}
-
-	return (NULL);
+		for (j = 0; accept[j] != '\0'; j++)
+			if (s[i] == accept[j])
+				goto exit;
+exit: return (s[i] != '\0' ? s + i : '\0');
 }
