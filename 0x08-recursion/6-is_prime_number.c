@@ -1,31 +1,31 @@
-#include "holberton.h"
-int prime_checker(int n, int i);
+#include "main.h"
+
 /**
- * is_prime_number - executes prime_checker
- * @n: input to check
- * Return: Always 0 (Success)
+ * prime2 - Makes possible to evaluate from 1 to n
+ * @a: same number as n
+ * @b: number that iterates from 1 to n
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int prime2(int a, int b)
+{
+	if (a == b)
+		return (1);
+	else if (a % b == 0)
+		return (0);
+	return (prime2(a, b + 1));
+}
+/**
+ * is_prime_number - checks if a number is prime
+ * @n: Number Integer
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
 int is_prime_number(int n)
 {
 	if (n <= 1)
 		return (0);
-	else if (prime_checker(n, n / 2) > 0)
-		return (1);
-	return (0);
-}
-
-/**
- * prime_checker - checks for prime
- * @n: input to check
- * @i: n / 2, then passes to i - 1, checks if greater than 0
- * Return: prime check
- */
-int prime_checker(int n, int i)
-{
-	if (i == 1)
-		return (1);
-	if (n % i == 0)
-		return (0);
-	else
-		return (prime_checker(n, i - 1));
+	return (prime2(n, 2));
 }
