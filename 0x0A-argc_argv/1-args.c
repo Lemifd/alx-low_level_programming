@@ -1,18 +1,16 @@
 #include <stdio.h>
-#include "main.h"
-/**
- * main - Entry Point
- * @argc: arguments
- * @argv: array pointing to arguments
- * Return: 0
- */
-int main(int argc, __attribute__((unused)) char *argv[])
-{
-	int i;
+#include <stdlib.h>
 
-	for (i = 0; i < argc; i++)
-	{
-	}
-	printf("%d\n", i - 1);
+/**
+ * main - Entry point
+ *
+ * @argc: Counts the number of parameters that go into main
+ * @argv: Pointer of array of pointers containing strings entering main
+ * Return: Always 0 (Success)
+ */
+int main(int argc, char **argv)
+{
+	(void) argv;
+	printf("%i\n", argc - 1);
 	return (0);
 }

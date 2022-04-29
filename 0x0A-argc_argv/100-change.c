@@ -1,66 +1,72 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
-int change(int cents);
-/**
- * main - Entry Point
- * @argc: arguments
- * @argv: array pointing to arguments
- * Return: 0
- */
-int main(int argc, char *argv[])
-{
-	if (argc != 2)
-	{
-		printf("%s\n", "Error");
-		return (1);
-	}
-	else if (argc < 0)
-	{
-		return (0);
-	}
+#include <ctype.h>
 
-	printf("%d\n", change(atoi(argv[1])));
-	return (0);
+
+/**
+ * _isnumber - checks if string is a number
+ * @s: string
+ *
+ * Return: On success 1.
+ * If not a number, 0 is returned.
+ */
+int _isnumber(char *s)
+{
+	int i, check, d;
+
+	i = 0, d = 0, check = 1;
+	if (*s == '-')
+		i++;
+	for (; *(s + i) != 0; i++)
+	{
+		d = isdigit(*(s + i));
+		if (d == 0)
+		{
+			check = 0;
+			break;
+		}
+	}
+	return (check);
 }
-
 /**
- * change - get change
- * @cents: amount of coins from main function
- * Return: change
+ * main - Entry point
+ *
+ * @argc: Counts the number of parameters that go into main
+ * @argv: Pointer of array of pointers containing strings entering main
+ * Return: Always 0 (Success)
  */
-int change(int cents)
+int main(int argc, char **argv)
 {
-	int q = 25, d = 10, n = 5, t = 2, p = 1;
-	int coins;
+	int j, ex, coins, cents, d;
+	int c[5] = {25, 10, 5, 2, 1};
 
-	while (cents > 0)
+	ex = 1, j = 0, coins = 0;
+	if (argc == 2)
 	{
-		while (cents >= q)
+		if (_isnumber(argv[1]))
 		{
-			cents -= q;
-			coins++;
-		}
-		while (cents >= d)
-		{
-			cents -= d;
-			coins++;
-		}
-		while (cents >= n)
-		{
-			cents -= n;
-			coins++;
-		}
-		while (cents >= t)
-		{
-			cents -= t;
-			coins++;
-		}
-		while (cents >= p)
-		{
-			cents -= p;
-			coins++;
+			ex = 0, cents = atoi(argv[1]);
+			if (cents >= 0)
+			{
+				while (cents != 0)
+				{
+					d = cents / c[j];
+					if (d == 0)
+					{
+						j++;
+					}
+					else
+					{
+						coins += d;
+						cents -= (d * c[j]);
+					}
+				}
+			}
 		}
 	}
-	return (coins);
+	if (ex == 0)
+		printf("%i\n", coins);
+	else
+		printf("%s\n", "Error");
+	return (ex);
 }
