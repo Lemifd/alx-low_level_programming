@@ -1,1 +1,1 @@
-readme
+Sturctures and typedef readme
