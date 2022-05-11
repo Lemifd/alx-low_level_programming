@@ -1,1 +1,1 @@
-Pointers to functions
+# Function pointers
