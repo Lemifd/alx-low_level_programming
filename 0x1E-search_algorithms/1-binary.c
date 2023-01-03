@@ -1,77 +1,48 @@
 #include "search_algos.h"
-#include <stdio.h>
 
 /**
- * print_array - prints the contents inside the array
- * @array: the array to print
- * @l: start point
- * @r: end point
- * Return: void
- */
-void print_array(int *array, size_t l, size_t r)
+  * binary_search - the binary search
+  * @array: pointer to first element in search array
+  * @size: size of array
+  * @value: value to find
+  *
+  * Return: index where found or -1
+  */
+int binary_search(int *array, size_t size, int value)
 {
-	size_t i;
+	int  left, right, pivot;
 
-	i = l;
-	if (i <= r)
-		printf("Searching in array: ");
-	while (l <= r)
+	if (array == NULL)
+		return (-1);
+	left = 0;
+	right = size - 1;
+	while (left <= right)
 	{
-		printf("%u", array[l]);
-		if (l != r)
-			printf(", ");
-		++l;
-	}
-
-	if (i <= r)
-		printf("\n");
-}
-
-
-
-
-/**
- * binary_S - binary search algorithm
- * @array: the array to print
- * @l: start point
- * @r: end point
- * @value: value to search
- * Return: index position
- */
-
-
-
-
-int binary_S(int *array, size_t l, size_t r, int value)
-{
-	int mid = l + (r - l) / 2;
-
-	print_array(array, l, r);
-	if (r >= l)
-	{
-		if (array[mid] == value)
-			return (mid);
-		else if (value < array[mid])
-			return (binary_S(array, l, mid - 1, value));
-		else if (value > array[mid])
-			return (binary_S(array, mid + 1, r, value));
+		print_array(array, left, right);
+		pivot = (left + right) / 2;
+		if (array[pivot] > value)
+			right = pivot - 1;
+		else if (array[pivot] < value)
+			left = pivot + 1;
+		else
+			return (pivot);
 	}
 	return (-1);
 }
 
-
-
 /**
- * binary_search - binary search algorithm
- * @array: the array to print
- * @size: size of array
- * @value: value to search
- * Return: index position
- */
-int binary_search(int *array, size_t size, int value)
-{
-	if (array == NULL)
-		return (-1);
+  * print_array - print array
+  * @array: array
+  * @left: starting print
+  * @right: ending print
+  */
 
-	return (binary_S(array, 0, size - 1, value));
+void print_array(int *array, int left, int right)
+{
+	int i;
+
+	printf("Searching in array: ");
+	for (i = left; i < right; i++)
+		printf("%d, ", array[i]);
+	printf("%d\n", array[i]);
 }
